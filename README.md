@@ -1,7 +1,8 @@
 # Gigabyte_Disable_DSE
 Code to disable DSE(Driver Signature Enforcement) using vulnerable gigabyte driver.
 
-Refernces
+References::
+
 https://github.com/hfiref0x/DSEFix/blob/master/Source/DSEFix/main.c
 https://news.sophos.com/en-us/2020/02/06/living-off-another-land-ransomware-borrows-vulnerable-driver-to-remove-security-software/
 

